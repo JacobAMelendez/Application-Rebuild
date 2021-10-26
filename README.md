@@ -39,7 +39,7 @@ In the `server/models/MessageModel.js` file, implement a database in either Mong
 - [ ] Additionally, all items should be stored with the time they were `created_at`. This should default to now
 
 #### Message controller
-In the `server/models/messageController.js` file, add the following functionality to the exported controller. (These will be server middleware/final handler functions, so they should take the appropriate parameters and perform the necessary callback operations.):
+In the `server/controllers/messageController.js` file, add the following functionality to the exported controller. (These will be server middleware/final handler functions, so they should take the appropriate parameters and perform the necessary callback operations.):
 - [ ] Function `postMessage` should create a new item in the database
 - [ ] Function `getMessages` should retrieve all items from the database and send it back to the client as JSON
 - [ ] Function `deleteMessage` should find items in the database based on an ID number and delete the `message` if it exists. (Later, you will be asked to authenticate before deleting the message.)
