@@ -1,6 +1,6 @@
 // const {mongoose} = require ('mongoose');
-const moongoose = require('moongoose');
-const { Schema, model } = moongoose;
+const mongoose = require('mongoose');
+const { Schema, model} = mongoose;
 
 // - [x] We want to store our data in a collection/table called `Message`. (Remember, this may be created as the plural `Messages` - that is fine.)
 
@@ -12,11 +12,11 @@ const myURI =
 // const URI = process.env.MONGO_URI || myURI
 // UNCOMMENT THE LINE BELOW IF USING POSTGRESQL
 // const URI = process.env.PG_URI || myURI;
-const Message = new Schema({
+const MessageSchema = new Schema({
   message: { type: String, required: true },
   password: { type: String, required: true },
-  created_at: { type: Date, required: true, default: Date.now }, //{ type: Date, default: Date.now}
+  created_at: { type: Date, required: false, default: Date.now }, //{ type: Date, default: Date.now}
 });
 // const MessageSchema = Message
-const messageSchema = model('Message', Message)
-module.exports = {messageSchema, myURI}; // <-- export your model
+const Message = model('Message', MessageSchema)
+module.exports = {Message, myURI}; // <-- export your model
