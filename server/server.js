@@ -24,17 +24,21 @@ mongoose.connection.once('open', () => {
 
 //Need this to unpack the response from our client to send as useable to our controller
 app.use(express.json());
+app.use(express.urlencoded())
 
-app.get('/getMessages', messageController.getMessages, (req, res) => {
-  return res.send(200).json(res.locals.messages);
+// gathering all items from the database and sending back as a JSON.
+// As instructions stated however in it would probaly be recomended to leave out passwords.
+//
+app.get('/msg', messageController.getMessages, (req, res) => {
+  return res.status(200).json(res.locals.messages);
 });
-app.post('/postMessage', messageController.postMessages, (req, res) => {
+app.post('/msg', messageController.postMessages, (req, res) => {
   console.log('back in the server file')
   return res.status(200).json(res.locals.postMessages);
 });
-// app.delete('/deleteMessage', messageController.deleteMessage, (req,res) =>{
-
-// });
+app.delete('/msg', messageController.deleteMessage, (req,res) =>{
+  return res.sendStatus(204);
+});
 
 app.use((req, res) => {
   res.sendStatus(404);
