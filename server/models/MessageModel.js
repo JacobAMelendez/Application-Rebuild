@@ -8,6 +8,13 @@ const { Schema, model} = mongoose;
 const myURI =
   'mongodb+srv://jacob05311991:SimplePassword@cluster0.b885ied.mongodb.net/?retryWrites=true&w=majority';
 
+
+//connect to cluster
+mongoose.connect(myURI);
+mongoose.connection.once('open', () => {
+  console.log('Connected to database');
+});
+
 // UNCOMMENT THE LINE BELOW IF USING MONGO
 // const URI = process.env.MONGO_URI || myURI
 // UNCOMMENT THE LINE BELOW IF USING POSTGRESQL
